@@ -1,21 +1,20 @@
 [ req ]
-default_bits       = 2048
+default_bits       = 4096
 prompt             = no
 default_md         = sha256
+req_extensions     = req_ext
 distinguished_name = dn
-x509_extensions    = v3_req
 
 [ dn ]
-C = VN
+C  = VN
 ST = Hanoi
-L = Hanoi
-O = Demo
+L  = Hanoi
+O  = Demo
 OU = Dev
-CN = localhost
+CN = 52.62.36.23
 
-[ v3_req ]
+[ req_ext ]
 subjectAltName = @alt_names
 
 [ alt_names ]
-DNS.1 = localhost
-IP.1 = 127.0.0.1
+IP.1 = 52.62.36.23
