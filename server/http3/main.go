@@ -20,7 +20,10 @@ func main() {
 		MinVersion: tls.VersionTLS13,
 	}
 	// load certificate
-	cert, err := tls.LoadX509KeyPair("D:/Programming/basics/Golang/demo_topic_ltm/server/tls_certificates/server.crt", "D:/Programming/basics/Golang/demo_topic_ltm/server/tls_certificates/server.key")
+	// cert, err := tls.LoadX509KeyPair("../tls_certificates/server.crt", "../tls_certificates/server.key")
+	cert, err := tls.LoadX509KeyPair("/home/ubuntu/httpserver/server/tls_certificates/server.crt",
+		"/home/ubuntu/httpserver/server/tls_certificates/server.key")
+
 	if err != nil {
 		log.Fatalf("TLS config failed: %v", err)
 	}
@@ -29,7 +32,7 @@ func main() {
 
 	// server
 	server := http3.Server{
-		Addr:      ":1304",
+		Addr:      ":443",
 		TLSConfig: &tlsConf,
 		Handler:   route,
 	}
