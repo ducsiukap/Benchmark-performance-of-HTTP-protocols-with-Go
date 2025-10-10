@@ -81,7 +81,7 @@ func postProdSmall(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// prepare statement
-	pstm, err := conn.Prepare("INSERT INTO Products_small(name, price) values (?, ?)")
+	pstm, err := conn.Prepare("INSERT INTO products_small(name, price) values (?, ?)")
 	if err != nil {
 		http.Error(w, "DB pstm error: "+err.Error(), http.StatusInternalServerError)
 		return

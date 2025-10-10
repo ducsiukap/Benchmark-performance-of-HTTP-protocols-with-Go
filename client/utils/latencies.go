@@ -115,6 +115,9 @@ func PostLatency(client *http.Client, nRequest int, api string, nProduct ...int)
 			lost++
 			continue
 		}
+		// body, _ := io.ReadAll(resp.Body)
+		// fmt.Println("res: ", string(body))
+
 		resp.Body.Close()
 
 		// take time
